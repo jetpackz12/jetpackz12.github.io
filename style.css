@@ -1,0 +1,101 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.image-container{
+    width: 420px;
+    height: 600px;
+}
+
+.image-container .picture1{
+    position: absolute;
+    top: 0;
+    transition: 1s;
+}
+
+.image-container .picture2{
+    position: absolute;
+    right: 0;
+    top: 20%;
+    transition: 1s;
+}
+
+.image-container .picture3{
+    position: absolute;
+    bottom: 0;
+    transition: 1s;
+}
+
+.border-shadows{
+    box-shadow: 1px 3px 5px black;
+    border-radius: 10px;
+}
+
+.justify-text{
+    text-align: justify;
+    text-indent: 4rem;
+}
+
+.animated{
+    position: relative;
+    transform:  translateY(150px);
+    opacity: 0;
+
+    transition: all 1.5s ease;
+}
+
+.animated.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.animated-text::before{
+    content: '';
+    animation: word 20s infinite;
+}
+
+.animated-text::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 8px);
+    background-color: white;
+    border-left: 1px solid black;
+    right: -8px;
+    
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 1px solid white;
+    }
+}
+
+
+@keyframes word{
+    0%, 20%{
+        content: 'Web Developer';
+    }
+    21%, 40%{
+        content: 'Android Developer';
+    }
+    41%, 60%{
+        content: 'Web Developer';
+    }
+    61%, 80%{
+        content: 'Android Developer';
+    }
+    81%, 100%{
+        content: 'Web Developer';
+    }
+}
+
+@keyframes typing{
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%{
+        width: calc(100% + 8px);
+    }
+}
